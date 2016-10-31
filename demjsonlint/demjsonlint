@@ -14,7 +14,7 @@ then
     usage
 fi
 
-log_file=~/tmp/dem.log
+log_file=/dev/null
 
 inputfile=$1
 inputfile_name=`basename "$inputfile"`
