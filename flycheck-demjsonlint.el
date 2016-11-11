@@ -1,3 +1,25 @@
+;;; flycheck-demjsonlint.el --- Flychecker for json-mode using jsonlint from demjson
+
+;; Copyright (C) 2016 Zenkie Zhu
+
+;; Author: Zenkie Zhu <451218651@qq.com>
+;; Keywords: convenience, tools
+;; Homepage: https://github.com/z4139jq/flycheck-demjsonlint
+;; Version: 0.1
+;; Package-Requires: ((flycheck "30"))
+
+;;; License:
+
+;; Licensed under the MIT license, see:
+;; https://github.com/z4139jq/flycheck-demjsonlint/blob/master/LICENSE
+
+;;; Commentary:
+
+;;; This package provides a flycheck checker for json-mode using jsonlint from demjson which support lint rules.
+;;; How-To: https://github.com/z4139jq/flycheck-demjsonlint/blob/master/README.md
+
+;;; Code:
+
 (require 'flycheck)
 
 (flycheck-define-checker json-demjsonlint
@@ -30,3 +52,4 @@ Add `json-demjsonlint' to `flycheck-checkers'."
   (add-to-list 'flycheck-checkers 'json-demjsonlint))
 
 (provide 'flycheck-demjsonlint)
+;;; flycheck-demjsonlint.el ends here
