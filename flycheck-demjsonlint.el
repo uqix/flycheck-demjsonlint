@@ -49,7 +49,11 @@ See URL `https://github.com/dmeranda/demjson'."
   "Setup Flycheck demjsonlint.
 Add `json-demjsonlint' to `flycheck-checkers'."
   (interactive)
-  (add-to-list 'flycheck-checkers 'json-demjsonlint))
+  (add-to-list 'flycheck-checkers 'json-demjsonlint)
+  (let* ((lib-file (locate-library "flycheck-demjsonlint"))
+         (lib-dir (file-name-directory lib-file))
+         (lint-file (concat lib-dir "demjsonlint")))
+    (setq flycheck-json-demjsonlint-executable lint-file)))
 
 (provide 'flycheck-demjsonlint)
 ;;; flycheck-demjsonlint.el ends here
