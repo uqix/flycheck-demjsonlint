@@ -11,7 +11,7 @@ e.g. trailing-comma is allowed in .eslintrc but forbidden in package.json.
 
 
 ## Installation
-
+  0. Uninstall zaach/jsonlint if necessary to avoid conflicts
   1. Install demjson by following [this instruction][installing-demjson-ref]
   2. Drop files demjsonlint/* into your bin dir which is in the PATH
   3. Drop file flycheck-demjsonlint.el into your lisp dir which is in the load-path
