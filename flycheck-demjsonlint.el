@@ -15,8 +15,19 @@
 
 ;;; Commentary:
 
-;;; This package provides a flycheck checker for json-mode using jsonlint from demjson which support lint rules.
-;;; How-To: https://github.com/z4139jq/flycheck-demjsonlint/blob/master/README.md
+;; Flycheck checker for json-mode using jsonlint from demjson which support lint rules.
+
+;; # Setup
+;;   0. Uninstall zaach/jsonlint if necessary to avoid conflicts: npm -g uninstall jsonlint
+;;   1. Install demjson: pip install demjson or easy_install demjson
+;;   2. (require 'flycheck-demjsonlint) in your init file
+
+;; # Lint Rules(.demjsonlintrc)
+;;   * Built-in support: .eslintrc, package.json
+;;   * Precedence: ~/.demjsonlintrc over pkg-dir/.demjsonlintrc
+;;   * Format: one record per line, `filename=jsonlint-cmd-options`, e.g. `.eslintrc=-S`
+;;   * Implementation: demjsonlint is just a wrapper of jsonlint from demjson, jsonlint-cmd-options is passed to jsonlint as is
+
 
 ;;; Code:
 
@@ -43,17 +54,10 @@ See URL `https://github.com/dmeranda/demjson'."
     (flycheck-sanitize-errors errors))
   :modes json-mode)
 
-
-;;;###autoload
-(defun flycheck-demjsonlint-setup ()
-  "Setup Flycheck demjsonlint.
-Add `json-demjsonlint' to `flycheck-checkers'."
-  (interactive)
-  (add-to-list 'flycheck-checkers 'json-demjsonlint)
-  (let* ((lib-file (locate-library "flycheck-demjsonlint"))
-         (lib-dir (file-name-directory lib-file))
-         (lint-file (concat lib-dir "demjsonlint")))
-    (setq flycheck-json-demjsonlint-executable lint-file)))
+(add-to-list 'flycheck-checkers 'json-demjsonlint)
+(setq flycheck-json-demjsonlint-executable
+      (expand-file-name "demjsonlint"
+                        (file-name-directory (or load-file-name (buffer-file-name)))))
 
 (provide 'flycheck-demjsonlint)
 ;;; flycheck-demjsonlint.el ends here

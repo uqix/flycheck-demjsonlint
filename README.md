@@ -12,21 +12,20 @@ e.g. trailing-comma is allowed in .eslintrc but forbidden in package.json.
 
 ## Installation
   0. Uninstall zaach/jsonlint if necessary to avoid conflicts
-  1. Install demjson by following [this instruction][installing-demjson-ref]
-  2. Clone this repository and ensure the dir is in the load-path
+  1. Install demjson: `pip install demjson` or `easy_install demjson`, more info at [installing-demjson][installing-demjson-ref]
+  2. Clone this repository and ensure the dir is in the `load-path`
 
 
 ## Configuration
 
 ```el
 (require 'flycheck-demjsonlint)
-(eval-after-load 'flycheck
-  '(add-hook 'flycheck-mode-hook #'flycheck-demjsonlint-setup))
 ```
 
-## .demjsonlintrc
+## Lint Rules(.demjsonlintrc)
+  * Built-in support: .eslintrc, package.json
+  * Precedence: ~/.demjsonlintrc over pkg-dir/.demjsonlintrc
   * Format: one record per line, `filename=jsonlint-cmd-options`, e.g. `.eslintrc=-S`
-  * Precedence: ~/.demjsonlintrc over demjsonlint-bin-dir/.demjsonlintrc
   * Implementation: demjsonlint is just a wrapper of jsonlint from demjson, jsonlint-cmd-options is passed to jsonlint as is
 
 
