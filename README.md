@@ -30,9 +30,9 @@ e.g. trailing-comma is allowed in .eslintrc but forbidden in package.json.
 (require 'flycheck-demjsonlint)
 ```
 
-## Lint Rules(.demjsonlintrc)
+## Lint Rules(.demjsonrc)
   * Built-in support: .eslintrc, package.json
-  * Precedence: ~/.demjsonlintrc over pkg-dir/.demjsonlintrc
+  * Precedence: ~/.demjsonrc over pkg-dir/.demjsonrc
   * Format: one record per line, `filename=jsonlint-cmd-options`, e.g. `.eslintrc=-S`
   * Implementation: demjsonlint is just a wrapper of jsonlint from demjson, jsonlint-cmd-options is passed to jsonlint as is
 
