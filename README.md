@@ -11,15 +11,15 @@ e.g. trailing-comma is allowed in .eslintrc but forbidden in package.json.
 
 
 ## Installation
-  0. Uninstall zaach/jsonlint if necessary to avoid conflicts:
+  1. Uninstall zaach/jsonlint if necessary to avoid conflicts:
 
-    ```npm -g uninstall jsonlint```
+     `npm -g uninstall jsonlint`
 
-  1. Install demjson, more info at [installing-demjson][installing-demjson-ref]:
+  2. Install demjson, more info at [installing-demjson][installing-demjson-ref]:
 
      `pip install demjson` **or** `easy_install demjson`
 
-  2. Install flycheck-demjsonlint which is available from [![MELPA](https://melpa.org/packages/flycheck-demjsonlint-badge.svg)](https://melpa.org/#/flycheck-demjsonlint):
+  3. Install flycheck-demjsonlint which is available from [![MELPA](https://melpa.org/packages/flycheck-demjsonlint-badge.svg)](https://melpa.org/#/flycheck-demjsonlint):
 
       `M-x package-install [RET] flycheck-demjsonlint [RET]`.
 
